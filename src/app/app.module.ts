@@ -36,8 +36,8 @@ const firebaseConfig = {
     AppRoutingModule,
     MatButtonModule,
     AngularFireModule.initializeApp(config),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     AngularFireStorageModule
   ],
 
