@@ -1,0 +1,87 @@
+<h1>Bem-vindo ao que é inexplicável. Onde ler a sua mente e a coisa mais fácil que existe.</h1>
+<span  *ngIf="contador === 0" style="color: #f44336;
+    font-size: 18px;">Só é possivél acertar sua carta se você foi fiel nas minhas 3 perguntas, ok? </span>
+<h3 *ngIf="contador === 0">Escolha uma carta em seu pensamento, diga-me em qual fileira ela está clicando em "Está aqui".</h3>
+<h3 *ngIf="contador === 1">Pra eu acertar sua carta, diga me mais uma vez em que fileira está?</h3>
+<h3 *ngIf="contador === 2">Voalá ! Já descobrir sua carta. Só para eu ter certeza que é ela mesmo diga me mais uma vez a
+  sua fileira, prometo.</h3>
+
+<h3 *ngIf="carta">Sua carta:</h3>
+
+
+<div *ngIf="contador === 3">
+  <div>
+    <section>
+      <div>
+        <button (click)="playAgain()" style="padding-left: 16px;" mat-raised-button color="warn">Jogar novamente
+        </button>
+      </div>
+    </section>
+  </div>
+  <div *ngIf="!!carta">
+    <app-playing-card
+      [type]="carta.name ==='clubs'? '&clubs;':carta.name ==='hearts'? '&hearts;':carta.name ==='diams'? '&diams;':carta.name ==='spades'? '&spades;':''"
+      [text]="carta.textoCards" [color]="getColorPlayingCard(carta.name)"></app-playing-card>
+  </div>
+
+
+</div>
+<div *ngIf="contador !== 3" class="row">
+  <div class="column">
+    <section>
+      <div class="example-button-row">
+        <button (click)="escolherFileira(1)" class="buttonCenter" mat-raised-button color="warn">Está aqui</button>
+      </div>
+    </section>
+    <div @fadeIn *ngFor="let item of obterNumerosFileiraSugerida(cardsVisible, 'indexValidosPrimeiraFileira')">
+      <!--      item.name ==='clubs'? '&clubs;':item.name ==='hearts'? '&hearts;':item.name ==='diams'? '&diams;':''-->
+      <app-playing-card
+
+
+        [type]="item.name === 'spades'? ' &spades;':item.name ==='clubs'? '&clubs;':item.name ==='hearts'? '&hearts;':item.name ==='diams'? '&diams;':''"
+        [text]="item.textoCards" [color]="getColorPlayingCard(item.name)"></app-playing-card>
+
+    </div>
+  </div>
+  <div class="column">
+    <section>
+      <div class="example-button-row">
+        <button (click)="escolherFileira(2)" class="buttonCenter" mat-raised-button color="warn">Está aqui</button>
+      </div>
+    </section>
+    <div @fadeIn *ngFor="let item of  obterNumerosFileiraSugerida(cardsVisible, 'indexValidosSegundaFileira')">
+      <app-playing-card
+        [type]="item.name === 'spades'? ' &spades;':item.name ==='clubs'? '&clubs;':item.name ==='hearts'? '&hearts;':item.name ==='diams'? '&diams;':''"
+        [text]="item.textoCards" [color]="getColorPlayingCard(item.name)"></app-playing-card>
+
+    </div>
+  </div>
+  <div class="column">
+    <section>
+      <div class="example-button-row">
+        <button (click)="escolherFileira(3)" class="buttonCenter" mat-raised-button color="warn">Está aqui</button>
+      </div>
+    </section>
+    <div @fadeIn *ngFor="let item of obterNumerosFileiraSugerida(cardsVisible, 'indexValidosTerceiraFileira')">
+      <app-playing-card
+        [type]="item.name === 'spades'? ' &spades;':item.name ==='clubs'? '&clubs;':item.name ==='hearts'? '&hearts;':item.name ==='diams'? '&diams;':''"
+        [text]="item.textoCards" [color]="getColorPlayingCard(item.name)"></app-playing-card>
+
+    </div>
+  </div>
+  <section  *ngIf="pageYoffset > 30">
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <div  class="scroll-to-top">
+          <p style="     margin-left: -17px;font-weight:bold; color: #f44336 ">Subir ao top </p>
+          <button  (click)="scrollToTop()" mat-fab color="warn" aria-label="Example icon button with a home icon">
+            &#9650;
+
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+

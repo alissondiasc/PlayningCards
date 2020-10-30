@@ -51,13 +51,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "4mb",
                   "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "80kb",
+                  "maximumError": "70kb"
                 }
               ]
             }
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "playningCards"
+    }
+  },
+  "defaultProject": "playningCards",
+  "cli": {
+    "analytics": "64626eed-67fd-4ccb-ae41-f209506a6765"
+  }
 }
