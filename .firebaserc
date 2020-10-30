@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "playningcards": {
+      "hosting": {
+        "playningCards": [
+          "playningcards"
+        ]
+      }
+    }
+  }
+}
