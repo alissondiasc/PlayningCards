@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
     {textoCards: 'J', name: this.spadeNipe},
     {textoCards: 'A', name: this.heartsNipe},
     {textoCards: 'K', name: this.heartsNipe},
-    {textoCards: 'J', name: this.clubsNipe},
+    {textoCards: 'J', name: this.diamsNipe},
     {textoCards: 'A', name: this.spadeNipe},
     {textoCards: 'K', name: this.spadeNipe},
     {textoCards: 'Q', name: this.clubsNipe},
